@@ -3,12 +3,14 @@ package com.example.happy_birthday_app
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.happy_birthday_app.ui.theme.Happy_Birthday_appTheme
@@ -39,15 +41,19 @@ class MainActivity : ComponentActivity() {
 //}
 @Composable
 fun GreetingText(message : String, from: String = "from Dana", modifier: Modifier = Modifier){
-    Text(
-        text = message,
-        fontSize = 100.sp,
-        lineHeight = 115.sp
-    )
-    Text(
-        text = from,
-        fontSize = 36.sp,
-    )
+    Column (modifier = modifier){
+        Text(
+            text = message,
+            fontSize = 100.sp,
+            lineHeight = 100.sp,
+            color = Color.Green
+        )
+        Text(
+            text = from,
+            fontSize = 36.sp,
+            color = Color.Red
+        )
+    }
 }
 
 @Preview(showBackground = false)
