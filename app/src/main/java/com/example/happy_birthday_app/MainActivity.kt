@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingText(message : String = "Happy Birthday Teacher!", from: String = "from Dana", modifier: Modifier = Modifier){
     Column (
-        modifier = modifier.padding(7.dp),
+        modifier = modifier,
         verticalArrangement = Arrangement.Center
     ){
         Text(
@@ -74,7 +74,7 @@ fun GreetingText(message : String = "Happy Birthday Teacher!", from: String = "f
             color = Color.Blue,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }
