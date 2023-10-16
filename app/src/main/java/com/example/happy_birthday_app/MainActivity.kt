@@ -24,6 +24,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +38,10 @@ class MainActivity : ComponentActivity() {
                 ) {
 //                    Greeting("Android")
 //                    GreetingText(message = "Happy Birthday Teacher!", from = "from Dana")
-                    GreetingImage(message = "Happy Birthday Teacher!", from = "from Dana")
+                    GreetingImage(
+                        stringResource(R.string.happy_birthday_text),
+                        stringResource(R.string.signature_text)
+                    )
                 }
             }
         }
@@ -53,7 +57,10 @@ class MainActivity : ComponentActivity() {
 //}
 @Composable
 fun GreetingText(message : String = "Happy Birthday Teacher!", from: String = "from Dana", modifier: Modifier = Modifier){
-    Column (modifier = modifier.padding(7.dp), verticalArrangement = Arrangement.Center){
+    Column (
+        modifier = modifier.padding(7.dp),
+        verticalArrangement = Arrangement.Center
+    ){
         Text(
             text = message,
             fontSize = 90.sp,
@@ -82,7 +89,10 @@ fun GreetingImage(message: String, from: String, modifier: Modifier=Modifier){
             contentScale = ContentScale.Crop,
             alpha = 0.7F
         )
-        GreetingText(modifier = Modifier.fillMaxSize().padding(8.dp).fillMaxWidth())
+        GreetingText(modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
+            .fillMaxWidth())
     }
 
 }
@@ -92,7 +102,9 @@ fun GreetingImage(message: String, from: String, modifier: Modifier=Modifier){
 fun GreetingPreview() {
     Happy_Birthday_appTheme {
 //        GreetingText()
-        GreetingImage(message = "Happy Birthday Teacher!", from = "from Dana")
-
+        GreetingImage(
+            stringResource(R.string.happy_birthday_text),
+            stringResource(R.string.signature_text)
+        )
     }
 }
