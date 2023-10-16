@@ -23,6 +23,7 @@ import com.example.happy_birthday_app.ui.theme.Happy_Birthday_appTheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.layout.ContentScale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,14 +56,14 @@ fun GreetingText(message : String = "Happy Birthday Teacher!", from: String = "f
     Column (modifier = modifier.padding(7.dp), verticalArrangement = Arrangement.Center){
         Text(
             text = message,
-            fontSize = 88.sp,
-            lineHeight = 97.sp,
+            fontSize = 90.sp,
+            lineHeight = 100.sp,
             color = Color.Red,
             textAlign = TextAlign.Center
         )
         Text(
             text = from,
-            fontSize = 32.sp,
+            fontSize = 34.sp,
             color = Color.Blue,
             modifier = Modifier
                 .padding(16.dp)
@@ -75,7 +76,12 @@ fun GreetingText(message : String = "Happy Birthday Teacher!", from: String = "f
 fun GreetingImage(message: String, from: String, modifier: Modifier=Modifier){
     val image = painterResource(id = R.drawable.androidparty)
     Box{
-        Image(painter = image, contentDescription = null)
+        Image(
+            painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.7F
+        )
         GreetingText(modifier = Modifier.fillMaxSize().padding(8.dp).fillMaxWidth())
     }
 
@@ -85,6 +91,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier=Modifier){
 @Composable
 fun GreetingPreview() {
     Happy_Birthday_appTheme {
+//        GreetingText()
         GreetingImage(message = "Happy Birthday Teacher!", from = "from Dana")
 
     }
